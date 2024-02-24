@@ -72,7 +72,7 @@ class BarangController extends Controller
      */
     public function show(Barang $barang)
     {
-        //
+        return $this->index();
     }
 
     /**
@@ -132,11 +132,12 @@ class BarangController extends Controller
 
         $barang->delete();
         $barang->inventaris()->delete();
+        $barang->pengiriman()->delete();
 
         return Inertia::render('Admin/Barang', [
             "barang" => Barang::get(),
             "cek_minimum" => $this->cek_minimum
-        ])->with("success", "Barang dan inventaris terkait berhasil dihapus!");
+        ])->with("success", "Barang dan data terkait berhasil dihapus!");
     }
 
     public function viewPDF()

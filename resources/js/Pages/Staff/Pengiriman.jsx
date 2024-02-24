@@ -34,7 +34,7 @@ export default function Pengiriman({ auth, pengiriman, success, cek_minimum }) {
                                 berada dalam batas minimum
                             </div>
                         )} */}
-                        <table className="table table-striped table-sm mt-3">
+                        <table className="table table-striped table-sm mt-3 text-center">
                             <thead>
                                 <tr>
                                     <th scope="col">No</th>

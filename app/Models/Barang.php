@@ -18,6 +18,6 @@ class Barang extends Model
 
     public function pengiriman()
     {
-        return $this->hasMany(Inventaris::class, 'id_barang');
+        return $this->hasMany(Pengiriman::class, 'id_barang');
     }
 }
