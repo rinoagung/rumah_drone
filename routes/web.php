@@ -27,6 +27,7 @@ Route::get('/dashboard', function () {
 
 Route::middleware('admin')->group(function () {
     Route::resource('/barang', BarangController::class);
+    Route::get("/viewpdf", [BarangController::class, 'viewPDF'])->name('viewpdf');
 });
 Route::middleware('auth')->group(function () {
     Route::get("/barang", [BarangController::class, 'index'])->name('barang');
@@ -35,7 +36,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('staff')->group(function () {
     Route::resource('/pengiriman', PengirimanController::class);
-    Route::get("/pengiriman/form/{barang}", [PengirimanController::class, 'index'])->name('pengiriman.form');
+    Route::get("/pengiriman/form/{barang}", [PengirimanController::class, 'create'])->name('pengiriman.form');
 });
 
 require __DIR__ . '/auth.php';

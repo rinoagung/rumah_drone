@@ -7,6 +7,7 @@ import TextInput from "@/Components/TextInput";
 
 export default function Barang({ auth, barang, errors, success }) {
     const { data, setData, post, processing } = useForm({
+        id_barang: barang.id,
         nama_barang: barang.nama_barang,
         jumlah_barang: barang.jumlah_barang,
         jumlah_dikirim: "",
@@ -62,31 +63,34 @@ export default function Barang({ auth, barang, errors, success }) {
                                 />
                                 <InputError
                                     message={errors.nama_barang}
-                                    className="mt-2"
+                                    className="mt-2 text-danger"
                                 />{" "}
                             </div>
                             <div className="mb-3">
                                 <label
-                                    htmlFor="jumlah_barang"
+                                    htmlFor="jumlah_dikirim"
                                     className="form-label"
                                 >
-                                    Jumlah Barang (Tidak boleh lebih dari{" "}
+                                    Jumlah Dikirim (Tidak boleh lebih dari{" "}
                                     {data.jumlah_barang})
                                 </label>
                                 <TextInput
-                                    id="jumlah_barang"
+                                    id="jumlah_dikirim"
                                     type="number"
-                                    name="jumlah_barang"
+                                    name="jumlah_dikirim"
                                     value={data.jumlah_dikirim}
                                     className="form-control rounded-top"
                                     onChange={(e) =>
-                                        setData("jumlah_barang", e.target.value)
+                                        setData(
+                                            "jumlah_dikirim",
+                                            e.target.value
+                                        )
                                     }
                                     required
                                 />
                                 <InputError
-                                    message={errors.jumlah_barang}
-                                    className="mt-2"
+                                    message={errors.jumlah_dikirim}
+                                    className="mt-2 text-danger"
                                 />{" "}
                             </div>
                             <div className="mb-3">
@@ -109,7 +113,7 @@ export default function Barang({ auth, barang, errors, success }) {
                                 />
                                 <InputError
                                     message={errors.no_pesanan}
-                                    className="mt-2"
+                                    className="mt-2 text-danger"
                                 />{" "}
                             </div>
                             <div className="mb-3">
@@ -121,7 +125,7 @@ export default function Barang({ auth, barang, errors, success }) {
                                 </label>
                                 <TextInput
                                     id="tgl_pengiriman"
-                                    type="number"
+                                    type="date"
                                     name="tgl_pengiriman"
                                     value={data.tgl_pengiriman}
                                     className="form-control rounded-top"
@@ -135,7 +139,7 @@ export default function Barang({ auth, barang, errors, success }) {
                                 />
                                 <InputError
                                     message={errors.tgl_pengiriman}
-                                    className="mt-2"
+                                    className="mt-2 text-danger"
                                 />{" "}
                             </div>
                             <div className="mb-3">
@@ -166,7 +170,7 @@ export default function Barang({ auth, barang, errors, success }) {
                                 </select>
                                 <InputError
                                     message={errors.status_pengiriman}
-                                    className="mt-2"
+                                    className="mt-2 text-danger"
                                 />{" "}
                             </div>
 

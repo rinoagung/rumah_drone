@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId("id_barang");
             $table->integer("jumlah_dikirim");
             $table->string('no_pesanan');
-            $table->timestamp('tgl_pengiriman')->nullable();
+            $table->date('tgl_pengiriman')->nullable();
             $table->string('status_pengiriman');
             $table->timestamps();
         });

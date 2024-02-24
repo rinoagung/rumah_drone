@@ -15,9 +15,11 @@ export default function Authenticated({ user, header, children }) {
                         <div>
                             <a
                                 href={
-                                    isiLink[2] != undefined
-                                        ? `/${isiLink[1]}`
-                                        : "/dashboard"
+                                    isiLink[2] == undefined
+                                        ? "/dashboard"
+                                        : isiLink[2] == "form"
+                                        ? "/barang"
+                                        : `/${isiLink[1]}`
                                 }
                                 // href="javascript:history.back()"
                                 style={{ width: "fit-content" }}

@@ -145,7 +145,7 @@ export default function Barang({ auth, barang, errors, success, cek_minimum }) {
                         )}
                     </div>
 
-                    <table className="table table-striped table-sm mt-5">
+                    <table className="table table-striped table-sm mt-5 text-center">
                         <thead>
                             <tr>
                                 <th scope="col">No</th>

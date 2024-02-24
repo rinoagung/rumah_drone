@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Inertia\Inertia;
 use App\Models\Barang;
 use App\Models\Inventaris;
+use App\Models\Pengiriman;
 use App\Http\Requests\StoreBarangRequest;
 use App\Http\Requests\UpdateBarangRequest;
 
@@ -136,5 +137,18 @@ class BarangController extends Controller
             "barang" => Barang::get(),
             "cek_minimum" => $this->cek_minimum
         ])->with("success", "Barang dan inventaris terkait berhasil dihapus!");
+    }
+
+    public function viewPDF()
+    {
+        $barang = Barang::get();
+        $inventaris = Inventaris::with('barang')->get();
+        $pengiriman = Pengiriman::with('barang')->get();
+
+        return Inertia::render('Admin/ViewPDF', [
+            "barang" => $barang,
+            "inventaris" => $inventaris,
+            "pengiriman" => $pengiriman,
+        ]);
     }
 }

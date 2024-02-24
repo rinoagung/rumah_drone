@@ -112,7 +112,7 @@ export default function Dashboard({ auth }) {
                             }}
                         >
                             <a
-                                href="/inventaris"
+                                href="/pengiriman"
                                 className="text-decoration-none text-dark"
                             >
                                 <div className="card-header">Header</div>
